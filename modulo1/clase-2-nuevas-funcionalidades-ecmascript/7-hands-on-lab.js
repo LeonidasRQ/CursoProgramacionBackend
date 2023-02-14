@@ -10,20 +10,22 @@ class TicketManager {
     return this.eventos;
   };
 
-  agregarEvento = (nombre, lugar, precio) => {
-    let evento = {
+  agregarEvento = (nombre, lugar, precio, capacidad, fecha) => {
+    const evento = {
       id: this.eventos.length + 1,
       nombre,
       lugar,
       precio: precio + this.#precioBaseDeGanancia,
-      capacidad: 50,
-      fecha: this.#getFechaHoy(),
+      capacidad: capacidad ?? 50,
+      fecha: fecha ?? this.#fechaHoy(),
       participantes: [],
     };
+
     this.eventos.push(evento);
+    return;
   };
 
-  agregarUsuario = (idEvento, idUsuario) => {
+  agregarParticipante = (idEvento, idUsuario) => {
     const indiceEvento = this.eventos.findIndex(
       (evento) => evento.id === idEvento
     );
@@ -33,6 +35,7 @@ class TicketManager {
       return;
     }
 
+    // comprobamos que el usuario no haya sido registrado anteriormente
     const usuarioRegistrado =
       this.eventos[indiceEvento].participantes.includes(idUsuario);
 
@@ -40,10 +43,11 @@ class TicketManager {
       console.log("Usuario ya ha sido registrado");
       return;
     }
+
     this.eventos[indiceEvento].participantes.push(idUsuario);
   };
 
-  ponerEventoEnGira = (idEvento, nuevaLocalidad, nuevaFecha) => {
+  ponerEventoEnGira = (idEvento, nuevoLugar, nuevaFecha) => {
     const eventoEncontrado = this.eventos.find(
       (evento) => evento.id === idEvento
     );
@@ -55,9 +59,9 @@ class TicketManager {
 
     const nuevoEvento = {
       ...eventoEncontrado,
-      lugar: nuevaLocalidad,
-      fecha: nuevaFecha,
       id: this.eventos.length + 1,
+      lugar: nuevoLugar,
+      fecha: nuevaFecha,
       participantes: [],
     };
 
@@ -65,27 +69,21 @@ class TicketManager {
     return;
   };
 
-  #getFechaHoy = () => {
-    let fecha = new Date();
+  #fechaHoy = () => {
+    const fecha = new Date();
+    const dia = fecha.getDate();
+    const mes = fecha.getMonth();
+    const anio = fecha.getFullYear();
 
-    let anio = fecha.getFullYear();
-    let mes = fecha.getMonth();
-    let dia = fecha.getDate();
-
-    return `${dia}-${mes}-${anio}`;
+    return `${dia}/${mes}/${anio}`;
   };
 }
 
-// Pruebas
-let ticketManager = new TicketManager();
+let evento1 = new TicketManager();
 
-// agregarEvento()
-ticketManager.agregarEvento("DevFest", "Edificio Ruta N");
-ticketManager.agregarEvento("MUN", "CECAR");
+evento1.agregarEvento("Dev Fest", "Buenos Aires", 200, 100, "18/02/2023");
+evento1.agregarEvento("Comicon", "Bogotá", 500);
 
-// agregarUsuario()
-ticketManager.agregarUsuario(1, 1);
-
-// ponerEventoEnGira()
-ticketManager.ponerEventoEnGira(1, "Sincelejo", "30-04-2023");
-console.log(ticketManager.getEventos());
+evento1.agregarParticipante(1, 5);
+evento1.ponerEventoEnGira(1, "Lima", "28/03/2023");
+console.log(evento1.getEventos());
