@@ -1,89 +1,86 @@
 class TicketManager {
-  #precioBaseDeGanancia;
+  #baseProfit;
 
   constructor() {
-    this.eventos = [];
-    this.#precioBaseDeGanancia = 0.15;
+    this.events = [];
+    this.#baseProfit = 0.15;
   }
 
-  getEventos = () => {
-    return this.eventos;
-  };
-
-  agregarEvento = (nombre, lugar, precio, capacidad, fecha) => {
-    const evento = {
-      id: this.eventos.length + 1,
-      nombre,
-      lugar,
-      precio: precio + this.#precioBaseDeGanancia,
-      capacidad: capacidad ?? 50,
-      fecha: fecha ?? this.#fechaHoy(),
-      participantes: [],
-    };
-
-    this.eventos.push(evento);
+  getEvents = () => {
+    console.log(this.events);
     return;
   };
 
-  agregarParticipante = (idEvento, idUsuario) => {
-    const indiceEvento = this.eventos.findIndex(
-      (evento) => evento.id === idEvento
-    );
-
-    if (indiceEvento === -1) {
-      console.log("El evento no existe");
-      return;
-    }
-
-    // comprobamos que el usuario no haya sido registrado anteriormente
-    const usuarioRegistrado =
-      this.eventos[indiceEvento].participantes.includes(idUsuario);
-
-    if (usuarioRegistrado) {
-      console.log("Usuario ya ha sido registrado");
-      return;
-    }
-
-    this.eventos[indiceEvento].participantes.push(idUsuario);
-  };
-
-  ponerEventoEnGira = (idEvento, nuevoLugar, nuevaFecha) => {
-    const eventoEncontrado = this.eventos.find(
-      (evento) => evento.id === idEvento
-    );
-
-    if (!eventoEncontrado) {
-      console.log("Evento no encontrado");
-      return;
-    }
-
-    const nuevoEvento = {
-      ...eventoEncontrado,
-      id: this.eventos.length + 1,
-      lugar: nuevoLugar,
-      fecha: nuevaFecha,
-      participantes: [],
+  createEvent = (name, place, price, capacity, date) => {
+    const event = {
+      id: this.events.length + 1,
+      name,
+      place,
+      price: price + this.#baseProfit,
+      capacity: capacity ?? 50,
+      date: date ?? this.#formatDate(),
+      participants: [],
     };
 
-    this.eventos.push(nuevoEvento);
+    this.events.push(event);
+  };
+
+  addParticipant = (eventId, participantId) => {
+    const eventIndex = this.events.findIndex((event) => event.id === eventId);
+
+    if (eventIndex === -1) {
+      console.log("This event does not exist");
+      return;
+    }
+
+    const participantExists =
+      this.events[eventIndex].participants.includes(participantId);
+
+    if (participantExists) {
+      console.log("The user has already singed up for this event!");
+      return;
+    }
+
+    this.events[eventIndex].participants.push(participantId);
+  };
+
+  rescheduleEvent = (eventId, newPlace, newDate) => {
+    const event = this.events.find((event) => event.id === eventId);
+
+    if (!event) {
+      console.log("Event not found");
+      return;
+    }
+
+    const newEvent = {
+      ...event,
+      id: this.events.length + 1,
+      place: newPlace,
+      date: newDate,
+      participants: [],
+    };
+
+    this.events.push(newEvent);
     return;
   };
 
-  #fechaHoy = () => {
-    const fecha = new Date();
-    const dia = fecha.getDate();
-    const mes = fecha.getMonth();
-    const anio = fecha.getFullYear();
+  #formatDate = () => {
+    const date = new Date();
 
-    return `${dia}/${mes}/${anio}`;
+    const day = date.getDay();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
   };
 }
 
-let evento1 = new TicketManager();
+const ticketManager = new TicketManager();
 
-evento1.agregarEvento("Dev Fest", "Buenos Aires", 200, 100, "18/02/2023");
-evento1.agregarEvento("Comicon", "Bogotá", 500);
+ticketManager.createEvent("Dev Fest", "Buenos Aires", 150, 100, "30/03/2023");
+ticketManager.createEvent("Comicon", "Lima", 90);
 
-evento1.agregarParticipante(1, 5);
-evento1.ponerEventoEnGira(1, "Lima", "28/03/2023");
-console.log(evento1.getEventos());
+ticketManager.addParticipant(1, 1);
+
+ticketManager.rescheduleEvent(1, "Santiado", "30/06/2023");
+ticketManager.getEvents();
