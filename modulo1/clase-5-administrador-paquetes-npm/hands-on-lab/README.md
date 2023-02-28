@@ -17,12 +17,12 @@ Se creará una clase `UserManager` que permitirá guardar usuarios en un archivo
           nombre,
           apellido,
           nombreUsuario,
-          contraseña
+          contrasena
       }
       ```
 
 2. El método `validarUsuario()` nos debe permitir:
-   1. Recibir `nombreUsuario` y `contraseña` como parametros;
+   1. Recibir `nombreUsuario` y `contrasena` como parametros;
    2. Leer el archivo `Usuarios.json` y comparar sí los parametros recibidos coinciden con los datos de algún usuario registrado en nuestro arhivo:
       1. Sí hay coincidencia, retornar un string con el mensaje "Loggueado";
       2. En caso contrario retornar un error indicando sí el usuario no existe, o si la contraseña no coincide.
