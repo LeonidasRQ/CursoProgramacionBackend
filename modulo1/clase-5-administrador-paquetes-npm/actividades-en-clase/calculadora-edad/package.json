@@ -1,0 +1,15 @@
+{
+  "name": "calculadora-edad",
+  "version": "1.0.0",
+  "description": "Crea un programa que utilice la dependencia `moment.js`. Recuerda que puedes utilizar el comando `npm install` para instalar la dependencia en tu proyecto de manera local.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
+}

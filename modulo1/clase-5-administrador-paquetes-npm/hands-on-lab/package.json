@@ -1,0 +1,14 @@
+{
+  "name": "hands-on-lab",
+  "version": "1.0.0",
+  "description": "Se creará una clase `UserManager` que permitirá guardar usuarios en un archivo. El usuario se recibirá con una contraseña en string plano, y se deberá guardar la contraseña hasheada con crypto. Utilizar los módulos nativos fs y crypto, Nuestra clase debe cumplir con los siguientes requerimientos:",
+  "main": "UserManager.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
