@@ -1,0 +1,19 @@
+{
+  "name": "otras-respuestas-express",
+  "version": "1.0.0",
+  "description": "1. Crear un proyecto basado en express js, el cual cuente con un servidor que escuche en el puerto `8080`",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
