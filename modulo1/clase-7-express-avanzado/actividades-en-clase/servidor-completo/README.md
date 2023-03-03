@@ -143,7 +143,7 @@ Response
 <tr>
 
 <td>
-200
+201
 </td>
 <td>
 
@@ -288,24 +288,6 @@ Response
 </td>
 </tr>
 
-<tr>
-
-<td>
-400
-</td>
-<td>
-
-```json
-{
-  "status": "Error",
-  "mensaje": {
-    "error": "la palabra no pudo ser eliminada"
-  }
-}
-```
-
-</td>
-</tr>
 <tr>
 
 <td>
