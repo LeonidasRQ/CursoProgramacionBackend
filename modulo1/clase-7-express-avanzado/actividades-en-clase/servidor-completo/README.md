@@ -17,14 +17,10 @@ const frase = "Frase inicial";
 </tr>
 <tr>
 <td> 
-<code>
-    GET
-</code>
+GET
 </td>
 <td>
-<code>
 /api/frase
-</code>
 </td>
 <td> 
 Retorna la frase completa
@@ -42,14 +38,10 @@ Retorna la frase completa
 
 <tr>
 <td> 
-<code>
-    GET
-</code>
+GET
 </td>
 <td>
-<code>
 /api/palabras/:pos
-</code>
 </td>
 <td> 
 Retorna la palabra que se encuentra en la posición indicada (pos)
@@ -67,14 +59,10 @@ Retorna la palabra que se encuentra en la posición indicada (pos)
 
 <tr>
 <td> 
-<code>
-    POST
-</code>
+POST
 </td>
 <td>
-<code>
 /api/palabras
-</code>
 </td>
 <td> 
 Agrega una palabra al final de la frase
@@ -93,14 +81,10 @@ Agrega una palabra al final de la frase
 
 <tr>
 <td> 
-<code>
-    PUT
-</code>
+PUT
 </td>
 <td>
-<code>
 /api/palabras/:pos
-</code>
 </td>
 <td> 
 Reemplaza una palabra dentro de la frase según la posición dada
@@ -119,14 +103,10 @@ Reemplaza una palabra dentro de la frase según la posición dada
 
 <tr>
 <td> 
-<code>
 DELETE
-</code>
 </td>
 <td>
-<code>
 /api/palabras/:pos
-</code>
 </td>
 <td> 
 Elimina una palabra de la frase según la posición dada
