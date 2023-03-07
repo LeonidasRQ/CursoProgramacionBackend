@@ -19,9 +19,11 @@ app.post("/api/user", (req, res) => {
       .send({ status: "Error", error: "incomplete values" });
   }
 
-  users.length === 0
-    ? (user.id = 1)
-    : (user.id = users[users.length - 1].id + 1);
+  if (users.length === 0) {
+    user.id = 1;
+  } else {
+    user.id = users[users.length - 1].id + 1;
+  }
 
   users.push(user);
   return res.status(201).send({ status: "Success", message: "User created" });
