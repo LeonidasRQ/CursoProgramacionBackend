@@ -65,20 +65,22 @@ Todas las rutas de carritos que están especificadas en la **tabla 3** deben ser
 
 ###### Tabla 3: Especificación de rutas para carritos
 
-| Verbo http | Ruta                 | Descripcion                                                                                                                  |
-| :--------- | :------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| POST       | `/`                  | Deberá crear un nuevo carrito con la estructura que detallamos abajo de esta tabla                                           |
-| GET        | `/:cid`              | Retorna solo el carrito con el id proporcionado                                                                              |
-| POST       | `/:cid/product/:pid` | Deberá agregar el id del producto indicado a la propiedad del carrito llamada `products`. Evita agregar el producto completo |
+| Verbo http | Ruta                 | Descripcion                                                                                                                                  |
+| :--------- | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST       | `/`                  | Deberá crear un nuevo carrito con la estructura que detallamos abajo de esta tabla                                                           |
+| GET        | `/:cid`              | Retorna solo el carrito con el id proporcionado                                                                                              |
+| POST       | `/:cid/product/:pid` | Deberá agregar el `id` y la cantidad del producto indicado a la propiedad del carrito llamada `products`. Evita agregar el producto completo |
 
 ### Estructura de un Carrito
 
 ###### Tabla 4: Estructura de Carrito
 
-| Propiedad | Tipo de Dato        | Descripción                                                                         |
-| :-------- | :------------------ | :---------------------------------------------------------------------------------- |
-| id        | `Number` o `String` | Identificador unico del carrito. Debe ser autogenerado desde la clase `CartManager` |
-| products  | `Array`             | Array que contendrá los id's de los productos que se van agregando al carrito       |
+| Propiedad | Tipo de Dato        | Descripción                                                                                                                                                                                                                                                                                                                          |
+| :-------- | :------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id        | `Number` o `String` | Identificador unico del carrito. Debe ser autogenerado desde la clase `CartManager`                                                                                                                                                                                                                                                  |
+| products  | `Array`             | Array de objetos que contendrá información de los productos que se van agregando al carrito. Cada objeto de este array debe tener una propiedad `id`, la cual representa el identificador del producto agregado; y una propiedad `quantity`, la cual representa la cantidad de unidades del producto que fueron agregadas al carrito |
+
+###### Nota: Cada vez que se intente agregar un producto al carrito, se verificará sí el producto ya había sido agregado antes, sí este es el caso, entonces simplemente se incrementará en 1 la cantidad de unidades de producto en el carrito, es decir, se le sumará 1 a `quantity`
 
 ###### Ejemplo de Carrito almacenado en `Carts.json`
 
@@ -86,7 +88,16 @@ Todas las rutas de carritos que están especificadas en la **tabla 3** deben ser
 [
     {
         id: 1
-        products: [ 1, 2, 6 ]
+        products: [
+            {
+                id: 1
+                quantity: 3
+            },
+            {
+                id: 5,
+                quantity: 2
+            }
+         ]
     }
 ]
 ```
