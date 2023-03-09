@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Welcome to my static resource</h1>
-    <form action="/api/pets/" method="post">
+    <form action="/api/pets/" enctype="multipart/form-data" method="POST">
       <label for="petName">First Name</label><br />
       <input type="text" id="petName" name="name" /> <br />
 
@@ -18,6 +18,10 @@
         <option value="cat">Cat</option>
         <option value="parrot">Parrot</option>
       </select>
+      <br />
+
+      <label for="file"></label>
+      <input type="file" name="thumbnail" />
       <br />
       <input type="submit" />
     </form>

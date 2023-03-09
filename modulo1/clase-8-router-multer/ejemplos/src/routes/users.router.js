@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { uploader } from "../utils.js";
 
+// le damos las funciones de Router a nuestra variable router
 const router = Router();
 
 let users = [];
@@ -9,7 +10,7 @@ router.get("/", (req, res) => {
   res.send({ status: "Success", payload: users });
 });
 
-router.post("/", uploader.single("file"), (req, res) => {
+router.post("/", (req, res) => {
   if (!req.file) {
     return res
       .status(400)
