@@ -98,16 +98,16 @@
    db.estudiantes.find({nombre: {$exists: false}})
    ```
 
-   </details>
+</details>
 
-   <details> 
-    <summary><b><font size="+2">Ejemplo: Proyecciones, Sort, Skip, Limits</font></b></summary>
+<details> 
+<summary><b><font size="+2">Ejemplo: Proyecciones, Sort, Skip, Limits</font></b></summary>
 
-3. Agregar 5 estudiantes más:
+1. Agregar 5 estudiantes más:
 
-```
-db.estudiantes.insertMany([{ nombre: 'Diana', apellido: 'Guarín', curso: 'C', edad: '16', correo: 'diana@correo', sexo: 'F', }, { nombre: 'José', apellido: 'Luciano', curso: 'C', edad: '14', correo: 'jose@correo', sexo: 'M', }, { nombre: 'Bob', apellido: 'Patiño', curso: 'A', edad: '12', correo: 'bob@correo', sexo: 'M', }, { nombre: 'Silvia', apellido: 'Barreto', curso: 'A', edad: '15', correo: 'silvia@correo', sexo: 'F', }, { nombre: 'Angel', apellido: 'Mori', curso: 'B', edad: '15', correo: 'angel@correo', sexo: 'M', }])
-```
+   ```
+   db.estudiantes.insertMany([{ nombre: 'Diana', apellido: 'Guarín', curso: 'C', edad: '16', correo: 'diana@correo', sexo: 'F', }, { nombre: 'José', apellido: 'Luciano', curso: 'C', edad: '14', correo: 'jose@correo', sexo: 'M', }, { nombre: 'Bob', apellido: 'Patiño', curso: 'A', edad: '12', correo: 'bob@correo', sexo: 'M', }, { nombre: 'Silvia', apellido: 'Barreto', curso: 'A', edad: '15', correo: 'silvia@correo', sexo: 'F', }, { nombre: 'Angel', apellido: 'Mori', curso: 'B', edad: '15', correo: 'angel@correo', sexo: 'M', }])
+   ```
 
 2. Realizar una busqueda aplicando proyecciones, sort, skip y limit
 
@@ -158,15 +158,16 @@ db.estudiantes.insertMany([{ nombre: 'Diana', apellido: 'Guarín', curso: 'C', e
 
 <details> 
     <summary><b><font size="+2">Actividad en Clase: Operaciones con Filtros</font></b></summary>
+
 1. Crear la colección "clientes" dentro de la base de datos "colegio"
    ```
    db.createCollection("clientes")
    ```
 2. Insertar cinco documentos dentro de la colección clientes
 
-```
-db.clientes.insertMany([{nombre: "Pablo", edad:25}, {nombre: "Juan", edad:22}, {nombre: "Lucia", edad:25}, {nombre: "Juan", edad:29},{nombre: "Fede", edad:35}])
-```
+   ```
+   db.clientes.insertMany([{nombre: "Pablo", edad:25}, {nombre: "Juan", edad:22}, {nombre: "Lucia", edad:25}, {nombre: "Juan", edad:29},{nombre: "Fede", edad:35}])
+   ```
 
 3. Listar todos los documentos de la colección "clientes" ordenados por edad descendente
 
