@@ -1,6 +1,7 @@
 # Apuntes CRUD MongoDB
 
-## Ejemplo: Mascotas
+<details> 
+    <summary><b><font size="+2">Ejemplo: Mascotas</font></b></summary>
 
 1. Crear base de datos llamada "baseCRUD"
 
@@ -32,7 +33,10 @@
    db.mascotas.estimatedDocumentCount()
    ```
 
-## Actividad en Clase: CRUD (Create, Read)
+</details>
+
+<details> 
+    <summary><b><font size="+2">Actividad en Clase: CRUD (Create, Read)</font></b></summary>
 
 1. Crear una base de datos llamada "colegio"
    ```
@@ -76,8 +80,10 @@
    ```
    db.estudiantes.countDocument({sexo:"F"})
    ```
+   </details>
 
-## Ejemplo: Filtros
+<details> 
+    <summary><b><font size="+2">Ejemplo: Filtros</font></b></summary>
 
 1. El colegio dará una conferencia sobre becas en el sector STEM para mujeres con edades entre 12 y 15 años. Por lo tanto necesita saber que niñas de la institución cumplen el requisito de edad para poder invitarlas a la conferencia.
 
@@ -92,9 +98,12 @@
    db.estudiantes.find({nombre: {$exists: false}})
    ```
 
-## Ejemplo: Proyecciones, Sort, Skip, Limits
+   </details>
 
-1. Agregar 5 estudiantes más:
+   <details> 
+    <summary><b><font size="+2">Ejemplo: Proyecciones, Sort, Skip, Limits</font></b></summary>
+
+3. Agregar 5 estudiantes más:
 
 ```
 db.estudiantes.insertMany([{ nombre: 'Diana', apellido: 'Guarín', curso: 'C', edad: '16', correo: 'diana@correo', sexo: 'F', }, { nombre: 'José', apellido: 'Luciano', curso: 'C', edad: '14', correo: 'jose@correo', sexo: 'M', }, { nombre: 'Bob', apellido: 'Patiño', curso: 'A', edad: '12', correo: 'bob@correo', sexo: 'M', }, { nombre: 'Silvia', apellido: 'Barreto', curso: 'A', edad: '15', correo: 'silvia@correo', sexo: 'F', }, { nombre: 'Angel', apellido: 'Mori', curso: 'B', edad: '15', correo: 'angel@correo', sexo: 'M', }])
@@ -145,17 +154,19 @@ db.estudiantes.insertMany([{ nombre: 'Diana', apellido: 'Guarín', curso: 'C', e
    db.estudiantes.find({edad: {$exists: true}, sexo:{$exists:true}}, {nombre:1, edad:1, sexo:1}).sort({edad:1}).limit(5).skip(5)
    ```
 
-## Actividad en Clase: Operaciones con Filtros
+   </details>
 
+<details> 
+    <summary><b><font size="+2">Actividad en Clase: Operaciones con Filtros</font></b></summary>
 1. Crear la colección "clientes" dentro de la base de datos "colegio"
    ```
    db.createCollection("clientes")
    ```
 2. Insertar cinco documentos dentro de la colección clientes
 
-   ```
-   db.clientes.insertMany([{nombre: "Pablo", edad:25}, {nombre: "Juan", edad:22}, {nombre: "Lucia", edad:25}, {nombre: "Juan", edad:29},{nombre: "Fede", edad:35}])
-   ```
+```
+db.clientes.insertMany([{nombre: "Pablo", edad:25}, {nombre: "Juan", edad:22}, {nombre: "Lucia", edad:25}, {nombre: "Juan", edad:29},{nombre: "Fede", edad:35}])
+```
 
 3. Listar todos los documentos de la colección "clientes" ordenados por edad descendente
 
@@ -240,3 +251,5 @@ db.estudiantes.insertMany([{ nombre: 'Diana', apellido: 'Guarín', curso: 'C', e
     ```
     db.estudiantes.deleteMany({})
     ```
+
+</details>
