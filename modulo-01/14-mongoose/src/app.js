@@ -2,9 +2,8 @@ import express from "express";
 import usersRouter from "./routes/users.router.js";
 import studentRouter from "./routes/student.router.js";
 import mongoose from "mongoose";
-import __dirname from "./utils.js";
 import dotenv from "dotenv";
-dotenv.config({ path: `${__dirname}/.env` });
+dotenv.config();
 
 const app = express();
 
