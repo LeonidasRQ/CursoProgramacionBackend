@@ -78,7 +78,7 @@
 
 8. Realizar el conteo de documentos totales cuyo sexo sea "F"
    ```
-   db.estudiantes.countDocument({sexo:"F"})
+   db.estudiantes.countDocuments({sexo:"F"})
    ```
    </details>
 
