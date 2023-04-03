@@ -5,7 +5,9 @@ const socket = {};
 socket.connect = function (httpServer) {
   socket.io = new Server(httpServer);
 
-  socket.io.on("connection", (socket) => {
+  let { io } = socket;
+
+  io.on("connection", (socket) => {
     console.log(`${socket.id} connected`);
   });
 };

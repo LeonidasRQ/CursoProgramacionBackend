@@ -8,6 +8,8 @@ dotenv.config();
 import usersRouter from "./routes/users.router.js";
 import chatsRouter from "./routes/chats.router.js";
 import messagesRouter from "./routes/messages.router.js";
+import viewsRouter from "./routes/views.router.js";
+
 const app = express();
 
 app.use(express.json());
@@ -33,5 +35,6 @@ mongoose.connect(
 app.use("/api/users", usersRouter);
 app.use("/api/chats", chatsRouter);
 app.use("/api/messages", messagesRouter);
+app.use("/", viewsRouter);
 
 socket.connect(httpServer);

@@ -5,7 +5,7 @@ export default class MessagesManager {
 
   getMessages = async () => {
     try {
-      const messages = await messageModel.find();
+      const messages = await messageModel.find().lean();
       return messages;
     } catch (error) {
       console.log(error);
