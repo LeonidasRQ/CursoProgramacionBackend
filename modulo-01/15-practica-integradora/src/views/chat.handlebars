@@ -1,0 +1,8 @@
+<h1>Bienvenidos a ChatAll</h1>
+<div>
+  {{#each messages}}
+    <p>{{this.message}}</p>
+  {{/each}}
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
