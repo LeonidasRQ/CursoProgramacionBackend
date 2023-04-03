@@ -1,6 +1,6 @@
 import fs from "fs";
-import __dirname from "./utils.js";
-import UserManager from "./usersManager.js";
+import __dirname from "../../utils.js";
+import UserManager from "./users.js";
 
 const userManager = new UserManager();
 

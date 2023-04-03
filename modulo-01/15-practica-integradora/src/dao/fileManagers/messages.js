@@ -1,7 +1,7 @@
 import fs from "fs";
-import __dirname from "./utils.js";
-import ChatManager from "./chatsManager.js";
-import UserManager from "./usersManager.js";
+import __dirname from "../../utils.js";
+import ChatManager from "./chats.js";
+import UserManager from "./users.js";
 
 const chatManager = new ChatManager();
 const userManager = new UserManager();
