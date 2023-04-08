@@ -1,0 +1,24 @@
+{
+  "name": "hands-on-lab",
+  "version": "1.0.0",
+  "description": "Crearemos un servidor con express que nos permita visualizar la lista completa de los estudiantes utilizando paginación",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "nodemon ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.4",
+    "mongoose": "^7.0.3",
+    "mongoose-paginate-v2": "^1.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
