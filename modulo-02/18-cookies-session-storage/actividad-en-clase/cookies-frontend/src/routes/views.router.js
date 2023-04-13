@@ -7,10 +7,10 @@ router.get("/", (req, res) => {
 });
 
 router.post("/cookie", (req, res) => {
-  const data = req.body;
+  const { name, email } = req.body;
 
   return res
-    .cookie("CoderCookie", data, { maxAge: 10000 })
+    .cookie(name, email, { maxAge: 10000 })
     .send({ status: "success", message: "cookie set" });
 });
 
