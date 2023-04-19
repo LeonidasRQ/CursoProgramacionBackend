@@ -8,4 +8,9 @@ function checkLogged(req, res, next) {
   next();
 }
 
-export { checkLogged, checkLogin };
+function checkSession(req, res, next) {
+  if (req.session.user) return res.redirect("/");
+  next();
+}
+
+export { checkLogged, checkLogin, checkSession };
