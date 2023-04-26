@@ -18,7 +18,7 @@ form.addEventListener("submit", async (evt) => {
 
   const result = await response.json();
 
-  console.log(result);
+  if (result.status === "sucess") console.log(document.cookie);
 
   localStorage.setItem("token", result.token);
 });
