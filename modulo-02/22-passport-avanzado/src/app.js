@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import initializePassport from "./passport.js";
 import passport from "passport";
+import { passportCall } from "./utils.js";
 
 const app = express();
 
@@ -23,13 +24,9 @@ app.post("/login", (req, res) => {
   }
 });
 
-app.get(
-  "/current",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.send(req.user);
-  }
-);
+app.get("/current", passportCall("jwt"), (req, res) => {
+  res.send(req.user);
+});
 
 app.listen(8080, () => {
   console.log("Listening on port 8080");
