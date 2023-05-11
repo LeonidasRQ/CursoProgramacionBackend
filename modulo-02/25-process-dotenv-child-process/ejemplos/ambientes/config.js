@@ -1,10 +1,22 @@
 import dotenv from "dotenv";
+import { Command } from "commander";
 
-const environment = "PRODUCTION";
+const program = new Command();
+
+program
+  .requiredOption(
+    "--mode <mode>",
+    "environment",
+    "environmant has not been specified"
+  )
+  .parse();
+
+const { mode } = program.opts();
+
+console.log(mode);
 
 dotenv.config({
-  path:
-    environment === "PRODUCTION" ? "./.env.production" : "./.env.development",
+  path: mode === "production" ? "./.env.production" : "./.env.development",
 });
 
 const config = {
