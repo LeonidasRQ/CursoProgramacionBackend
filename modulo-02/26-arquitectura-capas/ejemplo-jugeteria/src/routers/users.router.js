@@ -4,7 +4,6 @@ export const usersRouter = Router();
 
 let users = [
   {
-    id: 1,
     firstName: "Eugenio",
     lastName: "Alvarez",
   },
@@ -12,4 +11,10 @@ let users = [
 
 usersRouter.get("/", (req, res) => {
   res.send(users);
+});
+
+usersRouter.post("/", (req, res) => {
+  const user = req.body;
+  users.push(user);
+  res.send({ status: "success", message: "user created", payload: user });
 });
