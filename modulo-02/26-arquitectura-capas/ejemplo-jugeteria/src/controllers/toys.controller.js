@@ -1,16 +1,16 @@
-const toys = [
-  {
-    name: "terreneitor",
-    price: 250,
-  },
-];
+import { toysService } from "../services/toys.service.js";
 
 export function getToys(req, res) {
-  res.send(toys);
+  const toys = toysService.getToys();
+  return res.send({ status: "success", payload: toys });
 }
 
 export function createToy(req, res) {
   const toy = req.body;
-  toys.push(toy);
-  res.send({ status: "success", message: "toy created", payload: toy });
+  const createdToy = toysService.createToy(toy);
+  return res.send({
+    status: "success",
+    message: "toy created",
+    payload: createdToy,
+  });
 }
