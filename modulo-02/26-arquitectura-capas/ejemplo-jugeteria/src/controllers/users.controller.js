@@ -5,13 +5,12 @@ let users = [
   },
 ];
 
-export const usersController = {
-  getUsers(req, res) {
-    res.send(users);
-  },
-  createUser(req, res) {
-    const user = req.body;
-    users.push(user);
-    res.send({ status: "success", message: "user created", payload: user });
-  },
-};
+export function getUsers(req, res) {
+  res.send(users);
+}
+
+export function createUser(req, res) {
+  const user = req.body;
+  users.push(user);
+  res.send({ status: "success", message: "user created", payload: user });
+}
