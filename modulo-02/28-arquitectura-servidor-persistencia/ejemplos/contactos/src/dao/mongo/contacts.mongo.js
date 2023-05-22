@@ -9,7 +9,7 @@ class Contact {
   };
 
   create = async (contact) => {
-    const createdContact = await contactModel.create();
+    const createdContact = await contactModel.create(contact);
     return createdContact;
   };
 }
