@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { get } from "../controllers/contacts.controller.js";
+import { create, get } from "../controllers/contacts.controller.js";
 
 const router = Router();
 
 router.get("/", get);
+router.post("/", create);
 
 export default router;

@@ -12,6 +12,11 @@ class Contact {
   get = () => {
     return this.data;
   };
+
+  create = (contact) => {
+    this.data.push(contact);
+    return this.data;
+  };
 }
 
 export const contactMemory = new Contact();
