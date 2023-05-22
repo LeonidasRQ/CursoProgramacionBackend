@@ -1,4 +1,4 @@
-export class Contact {
+class Contact {
   constructor() {
     this.data = [
       {
@@ -13,3 +13,5 @@ export class Contact {
     return this.data;
   };
 }
+
+export const contactMemory = new Contact();

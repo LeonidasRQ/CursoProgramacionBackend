@@ -1,6 +1,6 @@
 import { contactModel } from "./models/contacts.js";
 
-export class Contact {
+class Contact {
   constructor() {}
 
   get = async () => {
@@ -8,3 +8,5 @@ export class Contact {
     return contacts;
   };
 }
+
+export const contactMongo = new Contact();
