@@ -1,14 +1,14 @@
-import { contactModel } from "./models/contacts.js";
+import { contactModel } from "./models/contact.js";
 
 class Contact {
   constructor() {}
 
-  get = async () => {
+  getContacts = async () => {
     const contacts = await contactModel.find();
     return contacts;
   };
 
-  create = async (contact) => {
+  createContact = async (contact) => {
     const createdContact = await contactModel.create(contact);
     return createdContact;
   };

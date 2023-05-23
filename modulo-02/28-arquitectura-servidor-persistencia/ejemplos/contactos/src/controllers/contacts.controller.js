@@ -1,11 +1,13 @@
-import { contactService } from "../repositories/index.js";
+import ContactService from "../services/contacts.service.js";
 
-export async function get(req, res) {
-  const contacts = await contactService.get();
+const contactService = new ContactService();
+
+export async function getContacts(req, res) {
+  const contacts = await contactService.getContacts();
   return res.send({ status: "success", payload: contacts });
 }
 
-export async function create(req, res) {
+export async function createContact(req, res) {
   const { first_name, last_name, email, phone } = req.body;
 
   const contact = {
@@ -15,6 +17,7 @@ export async function create(req, res) {
     phone,
   };
 
-  const result = await contactService.create(contact);
-  return res.send({ status: "success", payload: result });
+  const createdContact = await contactService.createContact(contact);
+
+  return res.send({ status: "success", payload: createdContact });
 }

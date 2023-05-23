@@ -9,13 +9,13 @@ class Contact {
     ];
   }
 
-  get = () => {
+  getContacts = () => {
     return this.data;
   };
 
-  create = (contact) => {
+  createContact = (contact) => {
     this.data.push(contact);
-    return this.data;
+    return contact;
   };
 }
 

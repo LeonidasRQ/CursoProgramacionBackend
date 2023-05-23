@@ -1,4 +1,4 @@
-import { contactDao } from "../dao/factory.js";
-import ContactRepository from "./contacts.repositories.js";
+import { contactDAO } from "../daos/factory.js";
+import ContactRepository from "./contacts.repository.js";
 
-export const contactService = new ContactRepository(contactDao);
+export const contactRepository = new ContactRepository(contactDAO);
