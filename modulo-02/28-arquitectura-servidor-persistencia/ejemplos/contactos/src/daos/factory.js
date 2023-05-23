@@ -1,19 +1,17 @@
-import config from "../config/config.js";
 import mongoose from "mongoose";
+import config from "../config/config.js";
 
-let contactDao;
+export let contactDAO;
 
 switch (config.persistence) {
   case "MONGO":
-    const connection = mongoose.connect(config.dbUrl);
+    mongoose.connect(config.dbUrl);
     const { contactMongo } = await import("./mongo/contacts.mongo.js");
-    contactDao = contactMongo;
+    contactDAO = contactMongo;
     break;
 
   case "MEMORY":
     const { contactMemory } = await import("./memory/contacts.memory.js");
-    contactDao = contactMemory;
+    contactDAO = contactMemory;
     break;
 }
-
-export { contactDao };
