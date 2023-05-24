@@ -1,9 +1,9 @@
-import { businessModel } from "./models/business.model.js";
+import { businessDao } from "../dao/index.js";
 
-export default class Business {
+export default class BusinessRepository {
   getBusinesses = async function () {
     try {
-      const businesses = await businessModel.find();
+      const businesses = await businessDao.getBusinesses();
       return businesses;
     } catch (error) {
       console.log(error);
@@ -13,7 +13,7 @@ export default class Business {
 
   getBusinessById = async function (id) {
     try {
-      const business = await businessModel.findOne({ _id: id });
+      const business = await businessDao.getBusinessById(id);
       return business;
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ export default class Business {
 
   createBusiness = async function (business) {
     try {
-      const result = await businessModel.create(business);
+      const result = await businessDao.createBusiness(business);
       return result;
     } catch (error) {
       console.log(error);
@@ -33,11 +33,7 @@ export default class Business {
 
   addProduct = async function (businessId, product) {
     try {
-      const result = await businessModel.updateOne(
-        { _id: businessId },
-        { $addToSet: { products: product } }
-      );
-
+      const result = await businessDao.addProduct(businessId, product);
       return result;
     } catch (error) {
       console.log(error);

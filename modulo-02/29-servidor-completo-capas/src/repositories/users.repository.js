@@ -1,9 +1,9 @@
-import { userModel } from "./models/user.model.js";
+import { userDao } from "../dao/index.js";
 
-export default class User {
+export default class UserRepository {
   getUsers = async function () {
     try {
-      const users = await userModel.find();
+      const users = await userDao.getUsers();
       return users;
     } catch (error) {
       console.log(error);
@@ -13,7 +13,7 @@ export default class User {
 
   getUserById = async function (id) {
     try {
-      const user = await userModel.findOne({ _id: id });
+      const user = await userDao.getUserById(id);
       return user;
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ export default class User {
 
   createUser = async function (user) {
     try {
-      const result = await userModel.create(user);
+      const result = await userDao.createUser(user);
       return result;
     } catch (error) {
       console.log(error);

@@ -11,6 +11,6 @@ const router = Router();
 router.get("/", getBusiness);
 router.get("/:bid", getBusinessById);
 router.post("/", createBusiness);
-router.post("/:bid/product", createBusiness);
+router.post("/:bid/product", addProduct);
 
 export default router;

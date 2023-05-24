@@ -1,9 +1,9 @@
-import { orderModel } from "./models/order.model.js";
+import { orderDao } from "../dao/index.js";
 
-export default class Order {
+export default class OrderRepository {
   getOrders = async function () {
     try {
-      const orders = await orderModel.find();
+      const orders = await orderDao.getOrders();
       return orders;
     } catch (error) {
       console.log(error);
@@ -13,7 +13,7 @@ export default class Order {
 
   getOrderById = async function (id) {
     try {
-      const order = await orderModel.findOne({ _id: id });
+      const order = await orderDao.getOrderById(id);
       return order;
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ export default class Order {
 
   createOrder = async function (order) {
     try {
-      const result = await orderModel.create(order);
+      const result = await orderDao.createOrder(order);
       return result;
     } catch (error) {
       console.log(error);
@@ -33,7 +33,7 @@ export default class Order {
 
   resolveOrder = async function (id, status) {
     try {
-      const result = await orderModel.updateOne({ _id: id }, { $set: status });
+      const result = await orderDao.resolveOrder(id, status);
       return result;
     } catch (error) {
       console.log(error);

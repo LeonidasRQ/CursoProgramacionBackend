@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userCollection = "Users";
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: String,
   email: {
     type: String,
@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
   role: String,
   orders: [
     {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "Orders",
     },
   ],

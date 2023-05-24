@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import { config } from "./config/config.js";
 import { routerApi } from "./routes/index.js";
+import { connect } from "./mongo.js";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(morgan("dev"));
 
 // routes
 routerApi(app);
+connect();
 
 const port = config.port || 8080;
 

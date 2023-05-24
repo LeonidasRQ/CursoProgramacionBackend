@@ -1,9 +1,9 @@
-import { userModel } from "./models/user.model.js";
+import { userRepository } from "../repositories/index.js";
 
-export default class User {
+export default class UserService {
   getUsers = async function () {
     try {
-      const users = await userModel.find();
+      const users = await userRepository.getUsers();
       return users;
     } catch (error) {
       console.log(error);
@@ -13,7 +13,7 @@ export default class User {
 
   getUserById = async function (id) {
     try {
-      const user = await userModel.findOne({ _id: id });
+      const user = await userRepository.getUserById(id);
       return user;
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ export default class User {
 
   createUser = async function (user) {
     try {
-      const result = await userModel.create(user);
+      const result = await userRepository.createUser(user);
       return result;
     } catch (error) {
       console.log(error);

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const businessCollection = "Businesses";
 
-const businessSchema = mongoose.Schema({
+const businessSchema = new mongoose.Schema({
   name: String,
   products: [],
 });
