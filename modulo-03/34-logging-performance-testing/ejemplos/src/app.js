@@ -7,6 +7,7 @@ app.use(express.json());
 app.use(addLogger);
 
 app.get("/", (req, res) => {
+  req.logger.warn("¡Alerta!");
   res.send({ message: "Prueba de Logger" });
 });
 
