@@ -27,6 +27,12 @@ app.get("/operacionCompleja", (req, res) => {
   res.send({ sum });
 });
 
+app.post("/register", (req, res) => {});
+
+app.post("/login", (req, res) => {});
+
+app.get("");
+
 app.listen(8080, () => {
   console.log("Listening on port 8080");
 });

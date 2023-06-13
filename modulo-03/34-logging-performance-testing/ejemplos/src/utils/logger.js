@@ -1,4 +1,5 @@
 import winston from "winston";
+import { __dirname } from "./dirname.js";
 
 const customLevelOptions = {
   levels: {
@@ -28,7 +29,7 @@ const logger = winston.createLogger({
       ),
     }),
     new winston.transports.File({
-      filename: "./errors.log",
+      filename: `${__dirname}/../logs/errors.log`,
       level: "warning",
       format: winston.format.simple(),
     }),
